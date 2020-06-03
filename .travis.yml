@@ -1,0 +1,23 @@
+language: generic
+sudo: required
+services:
+    - docker
+    
+before_install:
+    - docker build -t gileyni/multi-client-test -f ./client/Dockerfile.dev ./client
+    
+script:
+    - docker run -e CI=true gileyni/multi-client-test npm run test
+    
+after_success:
+    - docker build -t gileyni/multi-client ./client
+    - docker build -t gileyni/multi-nginx ./nginx
+    - docker build -t gileyni/multi-server ./server
+    - docker build -t gileyni/multi-worker ./worker
+    
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+- docker push gileyni/multi-client
+- docker push gileyni/multi-nginx
+- docker push gileyni/multi-server
+- docker push gileyni/multi-worker
