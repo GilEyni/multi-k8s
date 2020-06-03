@@ -15,9 +15,9 @@ after_success:
     - docker build -t gileyni/multi-server ./server
     - docker build -t gileyni/multi-worker ./worker
     
-- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
-- docker push gileyni/multi-client
-- docker push gileyni/multi-nginx
-- docker push gileyni/multi-server
-- docker push gileyni/multi-worker
+    - docker push gileyni/multi-client
+    - docker push gileyni/multi-nginx
+    - docker push gileyni/multi-server
+    - docker push gileyni/multi-worker
