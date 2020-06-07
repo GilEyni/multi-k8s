@@ -12,7 +12,7 @@ function App() {
 		  <header className="App-header">
 			<img src={logo} className="App-logo" alt="logo" />
 			<p>
-			  Version 2
+			  Version K8S
 			</p>
 			<a
 			  className="App-link"
