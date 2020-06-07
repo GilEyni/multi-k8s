@@ -12,5 +12,5 @@ docker push gileyni/multi-worker:$GIT_SHA
 
 kubectl apply -f k8s
 kubectl set image deployment/client-deployment client=gileyni/multi-client:$GIT_SHA
-kubectl set image deployment/server-deployment client=gileyni/multi-server:$GIT_SHA
-kubectl set image deployment/worker-deployment client=gileyni/multi-worker:$GIT_SHA
+kubectl set image deployment/server-deployment server=gileyni/multi-server:$GIT_SHA
+kubectl set image deployment/worker-deployment worker=gileyni/multi-worker:$GIT_SHA
